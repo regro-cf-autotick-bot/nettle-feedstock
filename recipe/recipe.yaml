@@ -9,17 +9,15 @@ package:
   version: ${{ version }}
 
 source:
+  # The COPYINGv2, COPYINGv3 and COPYING.LESSERv3 license files referenced by
+  # about.license_file ship inside this tarball, so they don't need to be
+  # downloaded separately. The previous per-file downloads pointed at the
+  # moving `master` branch and broke once upstream edited those files.
   - url: https://ftp.gnu.org/gnu/${{ name }}/${{ name }}-${{ version }}.tar.gz
     sha256: b0fcdd7fc0cdea6e80dcf1dd85ba794af0d5b4a57e26397eee3bc193272d9132
-  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYING.LESSERv3
-    sha256: a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c
-  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYINGv2
-    sha256: 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643
-  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYINGv3
-    sha256: e6037104443f9a7829b2aa7c5370d0789a7bda3ca65a0b904cdc0c2e285d9195
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
